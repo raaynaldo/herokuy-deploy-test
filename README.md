@@ -37,6 +37,7 @@ Create `Procfile` and `Procfile.dev` inside the root folder
 web: rails server
 release: bundle exec rails db:migrate
 release: bundle exec rails db:seed
+# db:seed is optional, if you use db:seed it will reseed data every time you push)
 # add any other commands
 ```
 
@@ -55,3 +56,36 @@ Push the changes to the branch that you chose before.
 
 - [https://herokuy-deploy-test.herokuapp.com/api/v1/users](https://herokuy-deploy-test.herokuapp.com/api/v1/users)
 - [https://herokuy-deploy-test.herokuapp.com/api/v1/posts](https://herokuy-deploy-test.herokuapp.com/api/v1/posts)
+
+## Bonus: Set Origin CORS Dynamically (On Development or On Production)
+
+```rb
+# config/environments/development.rb
+Rails.application.configure do
+    ...
+
+    # cors origns
+    config.allowed_cors_origins = "*"
+end
+```
+
+```rb
+# config/environments/production.rb
+Rails.application.configure do
+    ...
+
+    # cors origns
+    config.allowed_cors_origins = "front-end link without http://"
+end
+```
+
+```rb
+# config/initializers/cors.rb
+Rails.application.config.middleware.insert_before 0, Rack::Cors do
+    allow do
+        origins Rails.application.config.allowed_cors_origins
+
+        ...
+    end
+end
+```
