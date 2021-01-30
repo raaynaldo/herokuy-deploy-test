@@ -11,3 +11,6 @@ Post.destroy_all
 
 ray = User.create!(first_name: "Raynaldo", last_name: "Sutisna", username: "raynaldo", email: "raynaldo_sutisna@example.com", password: "123", picture: "")
 post = Post.create!(title: "Welcome", body: "hello world", user_id: ray.id)
+post = Post.create!(title: "Ruby Lecture", body: "Create Controller", user_id: ray.id)
+
+seulgi = User.create!(first_name: "Seulgi", last_name: "Heo", username: "seulgi", email: "seulgi_heo@example.com", password: "123", picture: "")
