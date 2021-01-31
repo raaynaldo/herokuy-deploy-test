@@ -1,5 +1,27 @@
 # Deploy Ruby API to Heroku (ruby-2.6.1)
 
+## Add Procfile and Procfile.dev in Rails Project
+Create `Procfile` and `Procfile.dev` inside the root folder
+```
+# root/Procfile
+web: rails server
+release: bundle exec rails db:migrate
+release: bundle exec rails db:seed
+# db:seed is optional, if you use db:seed it will reseed data every time you push)
+# add any other commands
+```
+
+```
+# root/Procfile.dev
+web: bundle exec rails server
+
+# I just follow other tutorial
+```
+
+![procfile](https://raw.githubusercontent.com/raaynaldo/herokuy-deploy-test/main/screen-shoot/procfile.png)
+
+Push the changes.
+
 ## Install Heroku CLI
 
 Follow this [documentation](https://devcenter.heroku.com/articles/heroku-cli#getting-started).
@@ -29,28 +51,6 @@ Heroku App will be available.
 ![enable-automatic-deploys](https://raw.githubusercontent.com/raaynaldo/herokuy-deploy-test/main/screen-shoot/enable-automatic-deploys.png)
 - Choose a branch to deploy, and Deploy Branch.
 ![deploy-branch](https://raw.githubusercontent.com/raaynaldo/herokuy-deploy-test/main/screen-shoot/deploy-branch.png)
-
-## Add Procfile and Procfile.dev in Rails Project
-Create `Procfile` and `Procfile.dev` inside the root folder
-```
-# root/Procfile
-web: rails server
-release: bundle exec rails db:migrate
-release: bundle exec rails db:seed
-# db:seed is optional, if you use db:seed it will reseed data every time you push)
-# add any other commands
-```
-
-```
-# root/Procfile.dev
-web: bundle exec rails server
-
-# I just follow other tutorial
-```
-
-![procfile](https://raw.githubusercontent.com/raaynaldo/herokuy-deploy-test/main/screen-shoot/procfile.png)
-
-Push the changes to the branch that you chose before.
 
 ## Try my Rails API
 
