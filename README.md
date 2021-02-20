@@ -1,4 +1,4 @@
-# Deploy Ruby API to Heroku (ruby-2.6.1)
+# Deploy Ruby API to Heroku (ruby-2.6.1) (PostgreSql)
 
 ## Add Procfile and Procfile.dev in Rails Project
 Create `Procfile` and `Procfile.dev` inside the root folder
@@ -25,12 +25,20 @@ Run this command in inside rails folder
 ```
 heroku create --stack heroku-18
 ```
-*I'm using heroku-18 stack because my ruby version is `ruby-2.6.1`.*
+*I'm using heroku-18 stack because my ruby version is `ruby-2.6.1`. if your ruby version is suported for heroku-20, you do not need this command.*
 
 Change the heroku app name (optional)
 ```
 heroku apps:rename herokuy-deploy-test
 ```
+
+## Using credentials.yml / master.key (Optional)
+If you are using `master.key`, you should set it up to the Heroku. `master.key` will not push to the repository because it includes to the `.gitignore`. 
+
+```
+heroku config:set RAILS_MASTER_KEY=`cat config/master.key`
+```
+[Source](https://stackoverflow.com/questions/62011541/using-credentials-yml-with-heroku-on-rails-5-2)
 
 ## Go to Heroku Dashboard
 
