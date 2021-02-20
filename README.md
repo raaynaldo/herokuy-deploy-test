@@ -25,7 +25,7 @@ Run this command in inside rails folder
 ```
 heroku create --stack heroku-18
 ```
-*I'm using heroku-18 stack because my ruby version is `ruby-2.6.1`. if your ruby version is suported for heroku-20, you do not need this command.*
+> *I'm using heroku-18 stack because my ruby version is `ruby-2.6.1`. if your ruby version is suported for heroku-20, you do not need this command.*
 
 Change the heroku app name (optional)
 ```
@@ -59,7 +59,7 @@ Heroku App will be available.
 - [https://herokuy-deploy-test.herokuapp.com/api/v1/posts](https://herokuy-deploy-test.herokuapp.com/api/v1/posts)
 
 ## Bonus: Set Origin CORS Dynamically (On Development or On Production)
-
+It will be very helpful, so we do not need to change the cors whenever we are in production or development.
 ```rb
 # config/environments/development.rb
 Rails.application.configure do
@@ -77,6 +77,7 @@ Rails.application.configure do
 
     # cors origns
     config.allowed_cors_origins = "front-end link without http://"
+    # ex: config.allowed_cors_origins = "gitulize.netlify.app"
 end
 ```
 
