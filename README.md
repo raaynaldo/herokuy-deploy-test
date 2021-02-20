@@ -4,18 +4,11 @@
 Create `Procfile` and `Procfile.dev` inside the root folder
 ```
 # root/Procfile
-web: rails server
+web: bin/rails server -p ${PORT:-5000} -e $RAILS_ENV
 release: bundle exec rails db:migrate
 release: bundle exec rails db:seed
 # db:seed is optional, if you use db:seed it will reseed data every time you push)
 # add any other commands
-```
-
-```
-# root/Procfile.dev
-web: bundle exec rails server
-
-# I just follow other tutorial
 ```
 
 ![procfile](https://raw.githubusercontent.com/raaynaldo/herokuy-deploy-test/main/screen-shoot/procfile.png)
