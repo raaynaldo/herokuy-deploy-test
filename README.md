@@ -58,7 +58,7 @@ Heroku App will be available.
 - [https://herokuy-deploy-test.herokuapp.com/api/v1/users](https://herokuy-deploy-test.herokuapp.com/api/v1/users)
 - [https://herokuy-deploy-test.herokuapp.com/api/v1/posts](https://herokuy-deploy-test.herokuapp.com/api/v1/posts)
 
-## Bonus: Set Origin CORS Dynamically (On Development or On Production)
+## Bonus: Set origin CORS dynamically (on Development or on Production)
 It will be very helpful, so we do not need to change the cors whenever we are in production or development.
 ```rb
 # config/environments/development.rb
