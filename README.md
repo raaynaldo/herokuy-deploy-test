@@ -77,7 +77,7 @@ Rails.application.configure do
 
     # cors origns
     config.allowed_cors_origins = "front-end link without http://"
-    # ex: config.allowed_cors_origins = "gitulize.netlify.app"
+    # ex: config.allowed_cors_origins = "netlikuy-deploy-test.netlify.app"
 end
 ```
 

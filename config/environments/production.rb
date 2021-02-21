@@ -112,5 +112,5 @@ Rails.application.configure do
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
   # cors origns
-  config.allowed_cors_origins = "gitulize.netlify.app"
+  config.allowed_cors_origins = "netlikuy-deploy-test.netlify.app"
 end
